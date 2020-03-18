@@ -614,10 +614,6 @@ h5,
         height: 650px;
         z-index: 0;
 
-        .item {
-            animation: zoomInUp .5s;
-        }
-
         .slider-item {
             background-size: cover;
             background-repeat: no-repeat;
@@ -637,7 +633,7 @@ h5,
                 left: 0;
                 right: 0;
                 background: $secondary;
-                opacity: .6;
+                opacity: .8;
             }
 
             .slider-text {
