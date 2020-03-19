@@ -8,7 +8,7 @@ import { CarouselConfig, CarouselComponent, SlideComponent } from 'ngx-bootstrap
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'sure-marketing-solutions';
+  title = 'Sure Marketing Solutions'.toUpperCase();
   ngOnInit() {
     AOS.init();
   }
@@ -51,8 +51,4 @@ export class AppComponent implements OnInit {
       position: 'MedTelPlus, VP of Marketing'
     },
   ]
-
-  slideChange(event, carousel: any, s1: SlideComponent, s2: ElementRef) {
-    // console.log(carousel, s1, s2)
-  }
 }
