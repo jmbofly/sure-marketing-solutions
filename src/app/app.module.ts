@@ -8,12 +8,9 @@ import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
-<<<<<<< HEAD
 import { GoogleMapsModule } from '@angular/google-maps';
-=======
 import { ServicesModule } from './services/services.module';
 import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
->>>>>>> services
 
 @NgModule({
   declarations: [
