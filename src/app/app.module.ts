@@ -4,15 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
 import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
 import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
-=======
-import { CarouselModule, PopoverModule } from 'ngx-bootstrap';
-import { ContactModule } from './contact/contact.module';
->>>>>>> d11a76e7131445e145afe6955fa3666046fc416d
+
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +20,6 @@ import { ContactModule } from './contact/contact.module';
     SharedModule,
     CarouselModule.forRoot(),
     PopoverModule.forRoot(),
-<<<<<<< HEAD
     CollapseModule.forRoot(),
     AlertModule.forRoot(),
     BsDropdownModule.forRoot(),
@@ -39,11 +34,9 @@ import { ContactModule } from './contact/contact.module';
     AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
     ContactModule,
-    AppRoutingModule,
-=======
     BrowserAnimationsModule,
-    ContactModule
->>>>>>> d11a76e7131445e145afe6955fa3666046fc416d
+    ContactModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,13 +10,7 @@ import { DataService } from './core/data.service';
 })
 export class AppComponent implements OnInit {
   title = 'Sure Marketing Solutions'.toUpperCase();
-<<<<<<< HEAD
-=======
-  ngOnInit() {
-    AOS.init();
-  }
 
->>>>>>> d11a76e7131445e145afe6955fa3666046fc416d
   testimonies = [
     {
       img: 'person_1.jpg',
@@ -54,7 +48,6 @@ export class AppComponent implements OnInit {
       name: `Henry Dee`,
       position: 'MedTelPlus, VP of Marketing'
     },
-<<<<<<< HEAD
   ];
 
   constructor(private data: DataService) { }
@@ -62,8 +55,4 @@ export class AppComponent implements OnInit {
     AOS.init();
     // this.data.addToCollection<{ name: string }>('test', { name: 'test' })
   }
-
-=======
-  ]
->>>>>>> d11a76e7131445e145afe6955fa3666046fc416d
 }

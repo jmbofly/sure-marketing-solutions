@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
 
   async addNewContact(data) {
     await this.dataService.addToCollection('contacts', data).then(res => console.log('contact added', res))
-    {
+  }
 
 
-    }
+}
