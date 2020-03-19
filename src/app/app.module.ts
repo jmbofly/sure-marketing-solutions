@@ -8,9 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
-import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
 import { HomeModule } from './home/home.module';
+<<<<<<< HEAD
 import { TeamModule } from './team/team.module';
+=======
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ServicesModule } from './services/services.module';
+import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
+>>>>>>> dev
 
 @NgModule({
   declarations: [
@@ -41,7 +46,11 @@ import { TeamModule } from './team/team.module';
     BrowserAnimationsModule,
     ContactModule,
     HomeModule,
+<<<<<<< HEAD
     TeamModule,
+=======
+    ServicesModule,
+>>>>>>> dev
     AppRoutingModule,
   ],
   providers: [],
