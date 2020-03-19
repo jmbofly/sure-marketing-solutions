@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule, PopoverModule } from 'ngx-bootstrap';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CarouselModule.forRoot(),
     PopoverModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CoreModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

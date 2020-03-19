@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, TemplateRef } from '@angular/core';
 import AOS from 'aos';
 import { CarouselConfig, CarouselComponent, SlideComponent } from 'ngx-bootstrap/carousel';
+import { DataService } from './core/data.service';
 
 @Component({
   selector: 'sms-root',
@@ -9,10 +10,6 @@ import { CarouselConfig, CarouselComponent, SlideComponent } from 'ngx-bootstrap
 })
 export class AppComponent implements OnInit {
   title = 'sure-marketing-solutions';
-  ngOnInit() {
-    AOS.init();
-  }
-
   testimonies = [
     {
       img: 'person_1.jpg',
@@ -50,9 +47,12 @@ export class AppComponent implements OnInit {
       name: `Henry Dee`,
       position: 'MedTelPlus, VP of Marketing'
     },
-  ]
+  ];
 
-  slideChange(event, carousel: any, s1: SlideComponent, s2: ElementRef) {
-    // console.log(carousel, s1, s2)
+  constructor(private data: DataService) { }
+  ngOnInit() {
+    AOS.init();
+    // this.data.addToCollection<{ name: string }>('test', { name: 'test' })
   }
+
 }
