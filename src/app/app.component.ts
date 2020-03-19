@@ -9,7 +9,7 @@ import { DataService } from './core/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'sure-marketing-solutions';
+  title = 'Sure Marketing Solutions'.toUpperCase();
   testimonies = [
     {
       img: 'person_1.jpg',
