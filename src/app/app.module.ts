@@ -7,9 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
-import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
 import { HomeModule } from './home/home.module';
+<<<<<<< HEAD
 import { GoogleMapsModule } from '@angular/google-maps';
+=======
+import { ServicesModule } from './services/services.module';
+import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
+>>>>>>> services
 
 @NgModule({
   declarations: [
@@ -39,8 +43,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ContactModule,
     BrowserAnimationsModule,
     ContactModule,
-    AppRoutingModule,
     HomeModule,
+    ServicesModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
