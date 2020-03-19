@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
 import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownM
     BrowserAnimationsModule,
     ContactModule,
     AppRoutingModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
