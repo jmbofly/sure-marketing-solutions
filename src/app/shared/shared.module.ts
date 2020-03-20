@@ -31,6 +31,6 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
     QuoteSectionComponent,
     LoaderComponent,
     BackToTopComponent,],
-  entryComponents: [QuoteSectionComponent, LoaderComponent]
+  entryComponents: [QuoteSectionComponent, LoaderComponent, BackToTopComponent]
 })
 export class SharedModule { }
