@@ -254,6 +254,8 @@ h5,
         }
 
         >.nav-item {
+            cursor: pointer !important;
+
             >.nav-link {
                 font-size: 14px;
                 padding-top: 1.2rem;
@@ -343,7 +345,7 @@ h5,
             }
 
             &.active {
-                >a {
+                >span {
                     background: $secondary !important;
                     color: $white;
 
