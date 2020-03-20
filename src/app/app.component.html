@@ -1,8 +1,9 @@
-<div class="bg-top navbar-light d-flex flex-column-reverse">
-  <div class="container py-3">
+<div #top class="bg-top navbar-light d-flex flex-column-reverse">
+  <div class="container py-3 d-none d-md-block">
     <div class="row no-gutters d-flex align-items-center align-items-stretch">
       <div class="col-md-4 d-flex align-items-center py-4">
-        <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="225" alt=""></a>
+        <img src="assets/images/logo.png" width="225" alt="Sure Marketing Solutions Logo" class="navbar-brand"
+          (click)="navigation('home')">
       </div>
       <div class="col-lg-8 d-block">
         <div class="row d-flex">
@@ -37,6 +38,10 @@
   <div class="top-social-menu py-2 bg-light">
     <div class="container">
       <div class="row">
+        <div class="col" [hidden]="top.clientWidth > 760">
+          <img src="assets/images/logo.png" width="100" alt="Sure Marketing Solutions Logo" class="navb-brand"
+            (click)="navigation('home')">
+        </div>
         <div class="col">
           <p class="social mb-0">
             <a href="#"><i class="fa fa-facebook"></i><span class="sr-only">Facebook</span></a>
@@ -45,17 +50,17 @@
           </p>
         </div>
         <div class="col text-right">
-          <a href="#" class="btn-link">Request A Quote</a>
+          <a href="#" class="btn-link">Get A Quote</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sms-navbar-light" id="sms-navbar">
+<nav class="navbar navbar-expand-lg sms-navbar-light" id="sms-navbar">
   <div class="container d-flex align-items-center">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sms-nav" aria-controls="sms-nav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
+    <button class="navbar-toggler" type="button" aria-controls="sms-nav" aria-expanded="false"
+      aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span class="oi oi-menu"></span>
     </button>
     <form class="searchform order-lg-last">
       <div class="form-group d-flex">
@@ -63,10 +68,11 @@
         <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
       </div>
     </form>
-    <div class="collapse navbar-collapse" id="sms-nav">
+    <div class="navbar-collapse animated" id="sms-nav" [ngClass]="showMenu ? 'show slideInDown': 'collapse slideInUp'">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" [ngClass]="isActive('home') ? 'active': ''" (click)="navigation('home')"><span
             class="nav-link">Home</span></li>
+
         <!-- <li class="nav-item" (click)="navigation('about')"><span class="nav-link">About</span></li> -->
         <li class="nav-item" [ngClass]="isActive('team') ? 'active': ''" (click)="navigation('team')"><span
             class="nav-link">Team</span></li>
@@ -176,6 +182,9 @@
   </div>
 </footer>
 
+
+<!-- Back to top button -->
+<sms-back-to-top class="d-flex w-100"></sms-back-to-top>
 
 
 <!-- loader -->

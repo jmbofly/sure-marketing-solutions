@@ -98,9 +98,6 @@ h5,
     color: $primary !important;
 }
 
-
-.bg-top {}
-
 .topper {
     font-size: 15px;
     width: 100%;
@@ -217,14 +214,21 @@ h5,
     }
 }
 
+.navbar-brand {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .4s ease-out;
+    z-index: 4;
+
+    &:hover {
+        opacity: .5;
+    }
+}
 
 
 .sms-navbar-light {
     background: $primary !important;
     // position: absolute;
-    // top: 20px;
-    // left: 0;
-    // right: 0;
     z-index: 3;
     padding: 0;
 
@@ -233,19 +237,6 @@ h5,
         position: relative;
         top: 0;
         padding: 10px 15px;
-    }
-
-    .navbar-brand {
-        color: $white;
-
-        &:hover,
-        &:focus {
-            color: $white;
-        }
-
-        @include media-breakpoint-down(md) {
-            color: $white;
-        }
     }
 
     .navbar-nav {
@@ -345,7 +336,9 @@ h5,
             }
 
             &.active {
-                >span {
+
+                >span,
+                a {
                     background: $secondary !important;
                     color: $white;
 
@@ -476,6 +469,8 @@ h5,
         color: rgba(0, 0, 0, .3);
     }
 }
+
+
 
 
 .hero-wrap {

@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   title = 'Sure Marketing Solutions'.toUpperCase();
   navStart: any;
   active = 'home';
+  showMenu: boolean;
 
   constructor(private data: DataService, private router: Router) {
     this.navStart = this.router.events.pipe(
@@ -29,7 +30,11 @@ export class AppComponent implements OnInit {
         this.loader.load();
       }
     });
-    // this.data.addToCollection<{ name: string }>('test', { name: 'test' })
+    if (document.body.clientWidth >= 991) {
+      this.showMenu = true;
+    } else {
+      this.showMenu = false;
+    }
   }
 
   isActive(link) {
@@ -38,6 +43,11 @@ export class AppComponent implements OnInit {
 
   navigation(url) {
     this.active = url;
-    this.loader.load(url)
+    this.loader.load(url);
+    this.showMenu = false;
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
   }
 }
