@@ -57,7 +57,7 @@ body {
     font-size: 15px;
     line-height: 1.8;
     font-weight: 400;
-    color: lighten($black, 50%);
+    color: darken($black, 30%);
 
     &.menu-show {
         overflow: hidden;
@@ -226,8 +226,36 @@ h5,
 }
 
 
-.sms-navbar-light {
-    background: $primary !important;
+.sms-navbar {
+
+    &.dark {
+        background: $secondary !important;
+
+        @include media-breakpoint-down(md) {
+            background: $secondary !important;
+        }
+
+        .nav-item.active,
+        .nav-item:hover {
+
+            background: $primary !important;
+            color: $secondary !important;
+
+            @include media-breakpoint-down(md) {
+                border-left: 1px solid $primary;
+                background: transparent !important;
+
+                >.nav-link {
+                    color: $primary !important;
+                    padding-left: 1rem !important;
+                }
+            }
+
+        }
+
+    }
+
+
     // position: absolute;
     z-index: 3;
     padding: 0;
@@ -242,12 +270,15 @@ h5,
     .navbar-nav {
         @include media-breakpoint-down(md) {
             padding-bottom: 10px;
+
+            .nav-link {}
         }
 
         >.nav-item {
             cursor: pointer !important;
 
             >.nav-link {
+                transition: all .4s ease;
                 font-size: 14px;
                 padding-top: 1.2rem;
                 padding-bottom: 1.2rem;
@@ -263,7 +294,7 @@ h5,
                 opacity: 1 !important;
 
                 @include media-breakpoint-down(md) {
-                    padding-left: 0;
+                    padding-left: 2rem;
                     padding-right: 0;
                     padding-top: .9rem;
                     padding-bottom: .9rem;
@@ -331,20 +362,6 @@ h5,
                     @include media-breakpoint-down(md) {
                         color: $white;
                         background: $primary;
-                    }
-                }
-            }
-
-            &.active {
-
-                >span,
-                a {
-                    background: $secondary !important;
-                    color: $white;
-
-                    @include media-breakpoint-down(md) {
-                        color: $white;
-                        background: transparent !important;
                     }
                 }
             }
@@ -966,6 +983,10 @@ h5,
         font-weight: 600;
     }
 
+    // p {
+    //     color: lighten($secondary, 15);
+    // }
+
     .img {
         width: 100%;
         // height: 300px;
@@ -1195,7 +1216,11 @@ h5,
         h3 {
             font-weight: 600;
             font-size: 20px;
-            color: $darken;
+            color: darken($secondary, 5);
+        }
+
+        p {
+            color: lighten($secondary, 5)
         }
     }
 }
