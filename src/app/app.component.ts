@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, TemplateRef, ViewChild } from '@angular/
 import AOS from 'aos';
 import { CarouselConfig, CarouselComponent, SlideComponent } from 'ngx-bootstrap/carousel';
 import { DataService } from './core/data.service';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, ActivatedRoute, NavigationStart, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   active = 'home';
   showMenu: boolean;
 
-  constructor(private data: DataService, private router: Router) {
+  constructor(private data: DataService, private router: Router, public route: ActivatedRoute) {
     this.navStart = this.router.events.pipe(
       filter(evt => evt instanceof NavigationStart)
     ) as Observable<NavigationStart>;

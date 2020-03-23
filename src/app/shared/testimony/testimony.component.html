@@ -1,0 +1,54 @@
+<section class="sms-section testimony-section">
+    <div class="container-fluid px-md-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center heading-section ">
+                <span class="subheading">Testimonies</span>
+                <h2 class="mb-4">Our Clients Says</h2>
+                <p>Our hard work and determination have earned Sure Marketing Solutions the trust of our clients. We
+                    believe in long-term business relationships, not
+                    transactions.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+                    <ng-container *ngFor="let slide of slideData" class="testimony-wrap d-flex">
+                        <ng-template carouselSlide [id]="slide.id">
+                            <img class="user-img" [src]="'assets/images/' + slide.src"
+                                [alt]="slide.id + ' ' + slide.name">
+
+                            <div class="text pl-4 pt-4 mt-5">
+                                <span class="quote d-flex align-items-center justify-content-center">
+                                    <i class="icon-quote-left"></i>
+                                </span>
+                                <p>{{slide?.caption}}</p>
+                                <p class="name">{{slide?.name}}</p>
+                                <span class="position">{{slide?.position}}</span>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+
+                </owl-carousel-o>
+                <!-- <carousel [itemsPerSlide]="3" [singleSlideOffset]="false" [indicatorsByChunk]="true">
+                        <slide class="mr-0" style="max-height: 200px;" *ngFor="let testimony of testimonies">
+                            <div class="item slideInLeft">
+                                <div class="testimony-wrap d-flex">
+                                    <div class="user-img"
+                                        [style.background-image]="'url(assets/images/' + testimony.img + ')'">
+                                    </div>
+                                    <div class="text pl-4">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+                                            <i class="icon-quote-left"></i>
+                                        </span>
+                                        <p>{{testimony.caption}}</p>
+                                        <p class="name">{{testimony.name}}</p>
+                                        <span class="position">{{testimony.position}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </slide>
+                    </carousel> -->
+            </div>
+        </div>
+    </div>
+</section>
