@@ -17,7 +17,6 @@ export class TestimonyComponent implements OnInit {
     pullDrag: true,
     items: 3,
     navSpeed: 700,
-    autoHeight: true,
     margin: 14,
     navText: ['<span class="fa fa-chevron-left"></span>', '<span class="fa fa-chevron-right"></span>'],
     dots: true,
@@ -40,7 +39,7 @@ export class TestimonyComponent implements OnInit {
   }
 
   getPassedData(e) {
-    console.log('slide data', e)
+    // console.log('slide data', e)
   }
 
 }
