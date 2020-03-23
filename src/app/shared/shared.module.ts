@@ -5,12 +5,15 @@ import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownM
 import { QuoteSectionComponent } from './quote-section/quote-section.component';
 import { LoaderComponent } from './loader/loader.component';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
+import { CarouselModule as OwlModule } from 'ngx-owl-carousel-o';
+import { TestimonyComponent } from './testimony/testimony.component';
 
 @NgModule({
-  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent],
+  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    OwlModule,
   ],
   exports: [CommonModule, FormsModule,
     CarouselModule,
@@ -28,9 +31,11 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
     ButtonsModule,
     AccordionModule,
     TimepickerModule,
+    OwlModule,
     QuoteSectionComponent,
     LoaderComponent,
-    BackToTopComponent,],
-  entryComponents: [QuoteSectionComponent, LoaderComponent, BackToTopComponent]
+    BackToTopComponent,
+    TestimonyComponent,],
+  entryComponents: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent]
 })
 export class SharedModule { }

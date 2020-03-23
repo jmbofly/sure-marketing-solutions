@@ -4,7 +4,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 text-center">
                 <h1 class="mb-2 bread">Professional Staff</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                <p class="breadcrumbs"><span class="mr-2"><a routerLink="'home'">Home <i
                                 class="ion-ios-arrow-forward"></i></a></span> <span>Team <i
                             class="ion-ios-arrow-forward"></i></span></p>
             </div>
@@ -224,40 +224,4 @@
 <sms-quote-section></sms-quote-section>
 
 
-<section class="sms-section testimony-section">
-    <div class="container-fluid px-md-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center heading-section ">
-                <span class="subheading">Testimonies</span>
-                <h2 class="mb-4">Our Clients Says</h2>
-                <p>Hard work and determination have earned the trust of our clients. We believe in relationships, not
-                    transactions.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <carousel [itemsPerSlide]="3" [singleSlideOffset]="false" [indicatorsByChunk]="true">
-                        <slide class="mr-0" style="max-height: 200px;" *ngFor="let testimony of testimonies">
-                            <div class="item slideInLeft">
-                                <div class="testimony-wrap d-flex">
-                                    <div class="user-img"
-                                        [style.background-image]="'url(assets/images/' + testimony.img + ')'">
-                                    </div>
-                                    <div class="text pl-4">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                        <p>{{testimony.caption}}</p>
-                                        <p class="name">{{testimony.name}}</p>
-                                        <span class="position">{{testimony.position}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </slide>
-                    </carousel>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<sms-testimony [name]="'team'"></sms-testimony>

@@ -1,11 +1,10 @@
-<section class="home-slider owl-carousel">
+<section class="home-slider">
     <carousel #carousel [showIndicators]="false">
-        <slide class="fade">
-            <div #slide1 class="item slider-item" style="background-image:url(assets/images/bg_1.jpg);">
+        <slide>
+            <div class="slider-item" style="background-image:url(assets/images/bg_1.jpg);">
                 <div class="overlay"></div>
                 <div class="container">
-                    <div class="row no-gutters slider-text align-items-center justify-content-start"
-                        data-scrollax-parent="true">
+                    <div class="row no-gutters slider-text align-items-center justify-content-start">
                         <div class="col-md-7  mb-md-5" data-aos="fade-up">
                             <span class="subheading">Sure Marketing Solutions</span>
                             <h1 class="mb-4">Digital Marketing & Business Solutions</h1>
@@ -16,7 +15,7 @@
             </div>
         </slide>
         <slide>
-            <div #slide2 class="item slider-item" style="background-image:url(assets/images/bg_2.jpg);">
+            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg);">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start"
@@ -31,6 +30,38 @@
             </div>
         </slide>
     </carousel>
+    <!-- <owl-carousel-o>
+        <ng-template carouselSlide>
+            <div class="slider-item" style="background-image:url(assets/images/bg_1.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center justify-content-start">
+                        <div class="col-md-7  mb-md-5" data-aos="fade-up">
+                            <span class="subheading">Sure Marketing Solutions</span>
+                            <h1 class="mb-4">Digital Marketing & Business Solutions</h1>
+                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template carouselSlide>
+            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center justify-content-start"
+                        data-scrollax-parent="true">
+                        <div class="col-md-7  mb-md-5">
+                            <span class="subheading">Sure Marketing Solutions</span>
+                            <h1 class="mb-4">We Help to Grow Your Business</h1>
+                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </owl-carousel-o> -->
 </section>
 
 <section class="sms-section sms-no-pt sms-no-pb sms-consult">
@@ -434,43 +465,7 @@
     </div>
 </section>
 
-<section class="sms-section testimony-section">
-    <div class="container-fluid px-md-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center heading-section ">
-                <span class="subheading">Testimonies</span>
-                <h2 class="mb-4">Our Clients Says</h2>
-                <p>Hard work and determination have earned the trust of our clients. We believe in relationships, not
-                    transactions.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <carousel [itemsPerSlide]="3" [singleSlideOffset]="false" [indicatorsByChunk]="true">
-                        <slide class="mr-0" style="max-height: 200px;" *ngFor="let testimony of testimonies">
-                            <div class="item slideInLeft">
-                                <div class="testimony-wrap d-flex">
-                                    <div class="user-img"
-                                        [style.background-image]="'url(assets/images/' + testimony.img + ')'">
-                                    </div>
-                                    <div class="text pl-4">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                        <p>{{testimony.caption}}</p>
-                                        <p class="name">{{testimony.name}}</p>
-                                        <span class="position">{{testimony.position}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </slide>
-                    </carousel>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<sms-testimony [name]="'home'" [slideData]="testimonials"></sms-testimony>
 <!-- <hr>
 
 <section class="sms-section">
