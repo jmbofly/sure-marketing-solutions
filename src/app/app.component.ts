@@ -12,7 +12,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('loader', { static: true }) loader: any;
+  @ViewChild('loader') loader: any;
   title = 'Sure Marketing Solutions'.toUpperCase();
   navStart: any;
   active = 'home';
