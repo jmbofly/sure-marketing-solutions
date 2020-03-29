@@ -1,0 +1,35 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    width: 5px;
+    background: #c3c3c3;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1em;
+    background-color: #99abb1;
+    outline: 1px solid slategrey;
+    border-radius: 1rem;
+}
+
+.text-small {
+    font-size: 0.9rem;
+}
+
+
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.sms-live-chat-wrapper .form-control {
+    // background-color: rgb(147, 166, 172) !important;
+    // color: #eee !important;
+}
+
+input::placeholder {
+    font-size: 0.9rem;
+    color: #343a40;
+}

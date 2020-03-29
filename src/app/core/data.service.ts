@@ -6,12 +6,24 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DataService {
   constructor(private afs: AngularFirestore) { }
 
-  addToCollection<T>(collectionName: string, data: any) {
-    return this.afs.collection<T>(collectionName).add(data).finally(() => console.log('collection added', collectionName));
+  addToCollection<T>(path: string, data: any) {
+    return this.afs.collection<T>(path).add(data);
   };
 
-  getDataFromCollectionById<T>(collectionName: string, id: string) {
-    return this.afs.collection<T>(collectionName).doc<T>(id).valueChanges()
+  getCollection<T>(path: string) {
+    return this.afs.collection<T>(path);
+  }
+
+  addDocument<T>(path: string, data: any, opts?: any) {
+    return this.afs.doc<T>(path).set(data, opts);
+  }
+
+  getDocById<T>(path: string, id: string) {
+    return this.afs.doc<T>(`${path}/${id}`);
+  }
+
+  updateDocById<T>(path: string, id: string, data: any) {
+    return this.afs.doc<T>(`${path}/${id}`).update(data);
   }
 
 

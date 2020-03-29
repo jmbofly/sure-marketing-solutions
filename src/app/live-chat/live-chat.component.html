@@ -1,0 +1,72 @@
+<button class="btn-secondary btn text-primary btn-lg m-4" style="position: fixed; z-index: 15; bottom: 0; right: 100px;"
+    data-aos="fade-up" (click)="openChat()">Live Chat <span class="fa fa-comments-o"></span></button>
+<div class="sms-live-chat-wrapper" [hidden]="!showChat">
+    <div class="col-md-6 px-0 pull-right">
+        <div class="px-1 chat-box bg-light shadow-lg border-dark">
+            <div class="row bg-primary text-secondary px-2 mb-2 sticky-top"
+                style="z-index: 2000; margin-left: -1rem; margin-right: -1rem;">
+                <h3 class="col-11">Live Chat</h3>
+                <button class="col-1 btn btn-small rounded-circle" style=""><span class="fa fa-close"
+                        (click)="closeChat()"></span>
+                </button>
+            </div>
+            <div #currentThread *ngFor="let chat of chatThread; let i = index;">
+                <!-- Sender Message-->
+                <div class="media w-50 mb-3" *ngIf="chat.type === 'support'">
+                    <img [src]="'https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg'" alt="user"
+                        width="50" class="rounded-circle">
+                    <div class="media-body ml-3">
+                        <div class="bg-light rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-muted">{{chat.text}}</p>
+                        </div>
+                        <p class="small text-muted">{{chat.timestamp | date: 'HH MM'}} |
+                            {{chat.timestamp | date: 'MMM'}}</p>
+                    </div>
+                </div>
+
+                <!-- Reciever Message-->
+                <div class="media w-50 ml-auto mb-3" *ngIf="chat.type === 'user'">
+                    <div class="media-body">
+                        <div class="bg-primary rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-white">{{chat.text}}</p>
+                        </div>
+                        <p class="small text-muted">{{chat.timestamp | date: 'HH MM'}} |
+                            {{chat.timestamp | date: 'MMM'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Typing area -->
+        <form class="border-top border-secondary">
+            <div class="input-group bg-light shadow-lg">
+                <input #userMessage type="text" placeholder="Type a message" name="message" id="message"
+                    aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4">
+                <div class="input-group-append">
+                    <button id="button-addon2" type="button" class="btn btn-link"
+                        (click)="sendMessage(userMessage.value)"> <i class="fa fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<ng-template bsModal #modalForm="bs-modal">
+    <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalForm.hide('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Email needed for chat</h4>
+    </div>
+    <div class="modal-body">
+        <h3 class="text-dark">Please enter your email address so we can better help you</h3>
+        <div class="input-group">
+            <label for=""></label>
+            <input type="email" #userEmail class="form-control" name="email" id="email" aria-describedby="emailHelpId"
+                placeholder="Enter Email">
+            <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+            (click)="modalForm.hide(userEmail, 'Submitted email')">Submit</button>
+    </div>
+</ng-template>

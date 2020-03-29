@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   active = 'home';
   showMenu: boolean;
 
+
   constructor(private data: DataService, private router: Router, public route: ActivatedRoute) {
     this.navStart = this.router.events.pipe(
       filter(evt => evt instanceof NavigationStart)

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ContactModule } from './contact/contact.module';
@@ -12,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { TeamModule } from './team/team.module';
 import { ServicesModule } from './services/services.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LiveChatModule } from './live-chat/live-chat.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,6 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     GoogleMapsModule,
-    CoreModule,
-    SharedModule,
     CarouselModule.forRoot(),
     PopoverModule.forRoot(),
     CollapseModule.forRoot(),
@@ -38,6 +38,8 @@ import { AppRoutingModule } from './app-routing.module';
     ButtonsModule.forRoot(),
     AccordionModule.forRoot(),
     TimepickerModule.forRoot(),
+    CoreModule,
+    SharedModule,
     ContactModule,
     BrowserAnimationsModule,
     ContactModule,
@@ -45,8 +47,11 @@ import { AppRoutingModule } from './app-routing.module';
     TeamModule,
     ServicesModule,
     AppRoutingModule,
+    LiveChatModule,
   ],
-  providers: [],
+  providers: [
+    CookieService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
