@@ -256,7 +256,7 @@ h5,
 
     }
 
-
+    transition: all .53s ease-out;
     // position: absolute;
     z-index: 3;
     padding: 0;
@@ -629,6 +629,10 @@ h5,
     position: relative;
     height: 650px;
     z-index: 0;
+
+    .carousel-control {
+        display: none !important;
+    }
 
     .slider-item {
         background-size: cover;
@@ -1762,25 +1766,65 @@ textarea.form-control {
     }
 }
 
+// .live-chat {
+//     position: fixed;
+//     top: -100vh;
+//     height: 100vh;
+//     width: 100vw;
+//     background: rgba(0, 0, 0, .5);
+// }
+
 .sms-live-chat-wrapper {
-    margin: 0 1rem 5rem 0 !important;
     position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2000;
+    z-index: 3000;
+    margin: 0 5rem 0 0 !important;
 
-    .messages-box,
-    .chat-box {
-        height: 550px;
-        overflow-y: scroll;
-        overflow-x: hidden;
+    .live-chat-inner {
+        margin-right: 7rem;
+
+        .messages-box,
+        .chat-box {
+            min-width: 400px;
+            height: 75vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            transition: all .35s ease;
+
+            .chat-wrapper-header {
+                position: sticky;
+                top: 0;
+                border-radius: 5px 5px 0 0 !important;
+                padding-right: .5rem;
+            }
+
+            &.collapsed {
+                margin-bottom: -52px;
+                height: 52px;
+                z-index: 5000;
+                bottom: 0;
+                overflow-y: hidden;
+            }
+
+            .media-body {
+                max-width: 100%;
+
+                p {
+                    word-wrap: break-word;
+                }
+            }
+
+        }
+
+        form {
+            min-width: 400px;
+        }
     }
 
     @include media-breakpoint-down(sm) {
-        top: 0;
         margin: 0 !important;
-        height: 100%;
         width: 100vw;
 
         .chat-box,
@@ -1800,6 +1844,15 @@ textarea.form-control {
     }
 }
 
+#back_to_top {
+    height: 52px;
+    border-radius: 5px 5px 0 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 4001;
+
+}
 
 // Map
 
@@ -1841,6 +1894,26 @@ textarea.form-control {
     100% {
         -moz-box-shadow: 0 0 0 0 rgba($primary, 0);
         box-shadow: 0 0 0 0 rgba($primary, 0);
+    }
+}
+
+@keyframes typing {
+    0% {
+        background-color: rgba(0, 0, 0, 1);
+        box-shadow: 3.2rem 0 0 0 rgba(0, 0, 0, 0.2),
+            6.4rem 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    25% {
+        background-color: rgba(0, 0, 0, 0.4);
+        box-shadow: 3.2rem 0 0 0 rgba(0, 0, 0, 2),
+            6.4rem 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    75% {
+        background-color: rgba(0, 0, 0, 0.4);
+        box-shadow: 3.2rem 0 0 0 rgba(0, 0, 0, 0.2),
+            6.4rem 0 0 0 rgba(0, 0, 0, 1);
     }
 }
 
@@ -2683,6 +2756,16 @@ textarea.form-control {
             }
         }
     }
+}
+
+#typing-loader {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    animation: typing 1s linear infinite alternate;
+    position: relative;
+    left: -3rem;
+    margin: 0 auto;
 }
 
 

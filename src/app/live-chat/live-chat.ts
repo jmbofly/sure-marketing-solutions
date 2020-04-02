@@ -9,6 +9,7 @@ export interface User {
     log?: any[];
 }
 
+
 export interface Support {
     messages?: {
         sent: ChatMessage[],
@@ -17,7 +18,7 @@ export interface Support {
     log?: any[];
 }
 
-export interface ThreadHistory {
+export interface MainThread {
     initTime?: Date;
     messages?: ChatMessage[];
     log?: any[];
@@ -33,6 +34,6 @@ export interface ChatMessage {
 export interface LiveChat {
     user: User;
     support: Support;
-    history: ThreadHistory;
+    thread: MainThread;
 }
 

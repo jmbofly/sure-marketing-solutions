@@ -46,8 +46,8 @@ import { LiveChatModule } from './live-chat/live-chat.module';
     HomeModule,
     TeamModule,
     ServicesModule,
-    AppRoutingModule,
     LiveChatModule,
+    AppRoutingModule,
   ],
   providers: [
     CookieService,

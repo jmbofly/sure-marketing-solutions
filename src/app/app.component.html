@@ -68,7 +68,7 @@
         <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
       </div>
     </form> -->
-    <div class="navbar-collapse animated" id="sms-nav" [ngClass]="showMenu ? 'show slideInDown': 'collapse slideInUp'">
+    <div class="navbar-collapse animated" id="sms-nav" [ngClass]="showMenu ? 'slideInDown': 'collapse'">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" [ngClass]="isActive('home') ? 'active': ''" (click)="navigation('home')"><span
             class="nav-link">Home</span></li>
@@ -90,10 +90,14 @@
 
 
 <!-- Page router outlet -->
-<router-outlet></router-outlet>
+<router-outlet id="main_content" [style.overflow-y]="liveChat.showChat ? 'hidden':'scroll'"></router-outlet>
 
-<!-- Live Chat -->
-<sms-live-chat ></sms-live-chat>
+<div class="fixed-bottom bg-dark w-100" style="height: 60px;z-index: 4000;" data-aos="fade-up" data-aos-offset="0">
+  <!-- Live Chat -->
+  <sms-live-chat #liveChat [ngClass]="liveChat.showChat ? 'live-chat': ''"></sms-live-chat>
+</div>
+<!-- Back to top button -->
+<sms-back-to-top class="d-flex w-100" [hidden]="liveChat.showChat && top.clientHeight < 760"></sms-back-to-top>
 
 <!-- Footer -->
 <footer class="sms-footer sms-bg-dark sms-section">
@@ -184,9 +188,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Back to top button -->
-<sms-back-to-top class="d-flex w-100"></sms-back-to-top>
 
 
 <!-- loader -->

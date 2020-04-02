@@ -1,0 +1,26 @@
+<ng-template bsModal #chatForm="bs-modal" style="z-index: 2222;">
+    <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="chatForm.hide($event)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Contact information</h4>
+    </div>
+    <div class="modal-body">
+        <h3 class="text-dark">Please enter your email address so we can better help you</h3>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" #userEmail class="form-control" name="email" id="email" aria-describedby="emailHelpId"
+                placeholder="you@domain.com">
+            <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
+        </div>
+        <div class="input-group">
+            <label for="email">Name</label>
+            <input type="text" #userName class="form-control" name="name" id="name" aria-describedby="emailHelpId"
+                placeholder="Terry Smith">
+            <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="chatForm.hide($event)">Submit</button>
+    </div>
+</ng-template>

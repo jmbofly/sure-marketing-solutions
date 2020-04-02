@@ -1,4 +1,4 @@
-import { LiveChat, ChatMessage } from './live-chat';
+import { ChatMessage } from './live-chat';
 
 export const MOCKCHATS: ChatMessage[] = [
     {
