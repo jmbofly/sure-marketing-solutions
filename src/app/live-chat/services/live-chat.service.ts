@@ -6,6 +6,7 @@ import { BsModalService, ModalDirective, BsModalRef } from 'ngx-bootstrap';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { ModalFormComponent } from '../modal-form/modal-form.component';
+import { SupportService } from './support.service';
 export class ChatThread {
   constructor(public user: User, public support: Support, public history: MainThread) { }
 }
@@ -22,19 +23,23 @@ export class LiveChatService {
     private dataService: DataService,
     private cookieService: CookieService,
     private userService: UserService,
+    private supportService: SupportService,
     private modalService: BsModalService
   ) { }
 
   addMessage(msg: ChatMessage) {
     this.mainThread.messages.push(msg);
-    return msg.type === 'user' ? Promise.resolve('WAITING') : Promise.resolve('COMPLETE');
+    this.getSupportResponseMessage(msg.text)
+  }
+  getSupportResponseMessage(text: string) {
+    console.log('init support response', text)
   }
 
   initChat() {
     const supportWelcome: ChatMessage = {
       timestamp: new Date(),
       type: 'support',
-      text: `Welcome to Live Chat! I'm Adam, a Sure Marketing Solutions support associate. How can I help you?`
+      body: `<b>Welcome to Live Chat!</b><br> I'm Adam, Sure Marketing Solutions support chat bot.<br> I can answer questions stored in our Frequently Asked Questions database.<br> How can I help you?`
     }
     this.mainThread = {
       messages: [],

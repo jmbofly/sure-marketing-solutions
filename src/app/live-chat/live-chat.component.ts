@@ -38,11 +38,11 @@ export class LiveChatComponent implements OnInit {
     this.showChat = true;
   }
 
-  sendMessage(val: string) {
+  sendMessage(val: string, body?: any) {
     const msg: ChatMessage = {
       type: 'user',
+      timestamp: new Date(),
       text: `${val}`,
-      timestamp: new Date()
     }
     this.chatService.addMessage(msg);
     this.userMessage.value = '';

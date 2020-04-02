@@ -29,6 +29,7 @@ export interface ChatMessage {
     type?: 'user' | 'support';
     timestamp?: Date;
     text?: string;
+    body?: any;
 }
 
 export interface LiveChat {

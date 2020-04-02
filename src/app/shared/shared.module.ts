@@ -7,9 +7,10 @@ import { LoaderComponent } from './loader/loader.component';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { CarouselModule as OwlModule } from 'ngx-owl-carousel-o';
 import { TestimonyComponent } from './testimony/testimony.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
-  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent],
+  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent, SafeHtmlPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -35,7 +36,8 @@ import { TestimonyComponent } from './testimony/testimony.component';
     QuoteSectionComponent,
     LoaderComponent,
     BackToTopComponent,
-    TestimonyComponent,],
+    TestimonyComponent,
+    SafeHtmlPipe,],
   entryComponents: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent]
 })
 export class SharedModule { }

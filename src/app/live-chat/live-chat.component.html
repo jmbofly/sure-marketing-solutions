@@ -17,11 +17,11 @@
             </div>
             <div #currentThread *ngFor="let chat of chatThread.messages; let i = index;">
                 <!-- Support Message-->
-                <div class="media w-75 mb-3" *ngIf="chat.type === 'support'">
-                    <img [src]="'https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg'" alt="user"
-                        width="50" class="rounded-circle">
+                <div class="media mb-3" *ngIf="chat.type === 'support'">
+                    <img [src]="'assets/images/icon-chat-bot.png'" alt="user" width="50" class="rounded-circle">
                     <div class="media-body ml-3">
                         <div class="bg-light rounded py-2 px-3 mb-2">
+                            <div *ngIf="chat.body" [innerHTML]="chat.body | safeHtml"></div>
                             <p class="text-small mb-0 text-muted input-wrap">{{chat.text}}</p>
                         </div>
                         <p class="small text-muted">{{chat.timestamp | date: 'shortTime'}} |
@@ -33,6 +33,7 @@
                 <div class="media w-75 ml-auto mb-3" *ngIf="chat.type === 'user'">
                     <div class="media-body mr-1">
                         <div class="bg-primary rounded py-2 px-3 mb-2">
+                            <div *ngIf="chat.body" [innerHTML]="chat.body | safeHtml"></div>
                             <p class="text-small mb-0 text-white input-wrap">{{chat.text}}</p>
                         </div>
                         <p class="small text-muted">{{chat.timestamp | date: 'shortTime'}} |
@@ -41,6 +42,7 @@
                 </div>
             </div>
             <div class="media w-75 mb-3" [hidden]="!isTyping">
+                <img [src]="'assets/images/icon-chat-bot.png'" alt="user" width="50" class="rounded-circle">
                 <div class="media-body ml-3">
                     <div class="py-2 px-3 mb-2">
                         <img width="100" src="assets/images/typing-loader.gif" alt="">
@@ -51,8 +53,9 @@
         <!-- Typing area -->
         <form class="border-top border-secondary">
             <div class="input-group bg-light shadow-lg">
-                <input [(ngModel)]="userMessage.value" type="text" placeholder="Type a message" name="message"
-                    id="message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4">
+                <input [(ngModel)]="userMessage.value" (keydown.enter)="sendMessage(userMessage.value)" type="text"
+                    placeholder="Type a message" name="message" id="message" aria-describedby="button-addon2"
+                    class="form-control rounded-0 border-0 py-4">
                 <div class="input-group-append">
                     <button id="button-addon2" type="button" class="btn btn-link"
                         (click)="sendMessage(userMessage.value)"> <i class="fa fa-paper-plane"></i></button>
