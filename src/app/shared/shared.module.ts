@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ParallaxModule } from 'ngx-parallax';
 import { CarouselModule, PopoverModule, CollapseModule, AlertModule, BsDropdownModule, ModalModule, TabsModule, TooltipModule, PaginationModule, TypeaheadModule, ProgressbarModule, SortableModule, ButtonsModule, AccordionModule, TimepickerModule } from 'ngx-bootstrap';
 import { QuoteSectionComponent } from './quote-section/quote-section.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -14,8 +15,10 @@ import { TestimonyComponent } from './testimony/testimony.component';
     CommonModule,
     FormsModule,
     OwlModule,
+    ParallaxModule,
   ],
   exports: [CommonModule, FormsModule,
+    ParallaxModule,
     CarouselModule,
     PopoverModule,
     CollapseModule,
