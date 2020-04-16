@@ -29,28 +29,20 @@ export class LiveChatService {
 
   addMessage(msg: ChatMessage) {
     this.mainThread.messages.push(msg);
-    this.getSupportResponseMessage(msg.text)
+    this.getSupportResponseMessage(msg);
   }
-  getSupportResponseMessage(text: string) {
-    console.log('init support response', text)
+  getSupportResponseMessage(msg: any) {
+    if (msg)
+    console.log('init support response', msg);
   }
 
   initChat() {
-    const supportWelcome: ChatMessage = {
-      timestamp: new Date(),
-      type: 'support',
-      body: `<b>Welcome to Live Chat!</b><br> I'm Adam, Sure Marketing Solutions support chat bot.<br> I can answer questions stored in our Frequently Asked Questions database.<br> How can I help you?`
-    }
     this.mainThread = {
       messages: [],
       initTime: new Date(),
       log: [{ text: 'main chat thread initialized', timestamp: new Date() }]
     };
     this.user = this.userService.initUser();
-    this.addMessage(supportWelcome);
+    this.supportService.initSupport().then(res => this.addMessage(res));
   }
-
-  // openModal() {
-  //   this.modalRef = this.modalService.show(ModalFormComponent);
-  // }
 }

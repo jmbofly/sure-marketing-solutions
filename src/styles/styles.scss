@@ -1783,25 +1783,32 @@ textarea.form-control {
     margin: 0 5rem 0 0 !important;
 
     .live-chat-inner {
-        margin-right: 7rem;
+        margin-right: 7rem !important;
+        min-width: 320px;
+        max-width: 500px;
+
 
         .messages-box,
         .chat-box {
-            min-width: 400px;
-            height: 75vh;
+            min-width: 320px;
+            height: 60vh;
+            // max-height: 400px;
+            max-width: 500px;
+            border-radius: 5px 5px 0 0;
             overflow-y: scroll;
             overflow-x: hidden;
             transition: all .35s ease;
 
             .chat-wrapper-header {
-                position: sticky;
+                z-index: 2000;
+                margin-left: -1rem;
+                margin-right: -1rem;
                 top: 0;
                 border-radius: 5px 5px 0 0 !important;
-                padding-right: .5rem;
             }
 
             &.collapsed {
-                margin-bottom: -52px;
+                // margin-bottom: -52px;
                 height: 52px;
                 z-index: 5000;
                 bottom: 0;
@@ -1809,11 +1816,11 @@ textarea.form-control {
             }
 
             .media {
-                width: 85%;
+                width: 85% !important;
             }
 
             .media-body {
-                max-width: 100%;
+                max-width: 100% !important;
 
                 p {
                     word-wrap: break-word;
@@ -1822,14 +1829,26 @@ textarea.form-control {
 
         }
 
-        form {
-            min-width: 400px;
+        .live-chat-footer {
+
+            // form {
+            // margin-left: -10px;
+            // margin-right: -10px;
+            // }
+            .chat-credit {
+                margin-top: 10px;
+            }
         }
     }
 
     @include media-breakpoint-down(sm) {
         margin: 0 !important;
         width: 100vw;
+
+        .live-chat-inner {
+            margin-right: 0 !important;
+
+        }
 
         .chat-box,
         .message-box {

@@ -90,14 +90,14 @@
 
 
 <!-- Page router outlet -->
-<router-outlet id="main_content" [style.overflow-y]="liveChat.showChat ? 'hidden':'scroll'"></router-outlet>
+<router-outlet id="main_content"></router-outlet>
 
-<div class="fixed-bottom bg-dark w-100" style="height: 60px;z-index: 4000;" data-aos="fade-up" data-aos-offset="0">
-  <!-- Live Chat -->
+<!-- Live Chat -->
+<!-- <div class="fixed-bottom bg-dark w-100" style="height: 60px;z-index: 4000;" data-aos="fade-up" data-aos-offset="0">
   <sms-live-chat #liveChat [ngClass]="liveChat.showChat ? 'live-chat': ''"></sms-live-chat>
-</div>
+</div> -->
 <!-- Back to top button -->
-<sms-back-to-top class="d-flex w-100" [hidden]="liveChat.showChat && top.clientHeight < 760"></sms-back-to-top>
+<sms-back-to-top class="d-flex w-100"></sms-back-to-top>
 
 <!-- Footer -->
 <footer class="sms-footer sms-bg-dark sms-section">

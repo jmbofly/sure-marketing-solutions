@@ -17,6 +17,7 @@ export class LiveChatComponent implements OnInit {
   showChat = false;
   isTyping = false;
   chatCollapsed = false;
+  waitingForUserInput = true;
   chatThread: MainThread = { messages: MOCKCHATS };
 
   constructor(private chatService: LiveChatService) { }
