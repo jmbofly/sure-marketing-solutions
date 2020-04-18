@@ -1,7 +1,7 @@
 <section class="home-slider">
     <carousel #carousel [showIndicators]="false">
         <slide>
-            <div class="slider-item" [style.background-attachment]="'fixed'" style="background-image:url(assets/images/bg_1.jpg);" parallax [config]="config">
+            <div class="slider-item" [style.background-attachment]="'fixed'" style="background-image:url(assets/images/bg_1.jpg); background-size: 110%;" parallax [axis]="'X'" [config]="config">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start">
@@ -15,7 +15,7 @@
             </div>
         </slide>
         <slide>
-            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg);" [style.background-attachment]="'fixed'" parallax [config]="config">
+            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg); background-size: 110%;" [style.background-attachment]="'fixed'" parallax [config]="config">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start"
@@ -444,7 +444,7 @@
     </div>
 </section>
 
-<section class="sms-intro sms-no-pb img" style="background-image: url(assets/images/bg_1.jpg);">
+<section class="sms-intro sms-no-pb img" style="background-image: url(assets/images/bg_5.jpg);background-attachment: fixed;" parallax [config]="config">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-9 col-md-8 d-flex align-items-center heading-section heading-section-white ">

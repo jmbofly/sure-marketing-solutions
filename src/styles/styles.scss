@@ -497,7 +497,7 @@ h5,
     position: inherit;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
     position: relative;
 
     .overlay {
@@ -627,14 +627,18 @@ h5,
 
 .home-slider {
     position: relative;
-    height: 650px;
+    height: 625px !important;
     z-index: 0;
+
+    .carousel-control {
+        display: none !important;
+    }
 
     .slider-item {
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: top center;
-        height: 650px !important;
+        background-position: center;
+        height: 620px !important;
         position: relative;
         z-index: 0;
         padding-top: 7rem;
@@ -642,6 +646,7 @@ h5,
         @include media-breakpoint-down(lg) {
             background-position: center center !important;
         }
+
 
         .overlay {
             position: absolute;
@@ -654,7 +659,7 @@ h5,
         }
 
         .slider-text {
-            // height: 650px;
+            // height: 625px;
 
             @include media-breakpoint-down(sm) {
                 text-align: center;
@@ -1534,6 +1539,12 @@ textarea.form-control {
 .sms-section {
     padding: 7em 0;
     position: relative;
+
+    background-attachment: fixed;
+    background-size: 110%;
+    @include media-breakpoint-down(sm) {
+        background-size: cover;
+    }
 }
 
 .sms-no-pt {
@@ -2657,7 +2668,15 @@ textarea.form-control {
     }
 }
 
+#back_to_top {
+    height: 52px;
+    border-radius: 5px 5px 0 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 4001;
 
+}
 
 #sms-loader {
     position: fixed;

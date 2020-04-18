@@ -1,4 +1,4 @@
-<section class="hero-wrap hero-wrap-2" style="background-image: url('assets/images/bg_1.jpg');">
+<section class="hero-wrap hero-wrap-2" style="background-image: url('assets/images/bg_1.jpg');" parallax [ratio]=".05">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -22,7 +22,7 @@
                             <div class="icon">
                                 <span class="icon-map-o"></span>
                             </div>
-                            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                            <p><span>Address:</span> 843 Fairbanks Avenue, Newark Ohio 43055</p>
                         </div>
                     </div>
                     <div class="col-md-4 text-center d-flex">
@@ -30,7 +30,7 @@
                             <div class="icon">
                                 <span class="icon-tablet"></span>
                             </div>
-                            <p><span>Phone:</span> <a href="tel://1234567920">Call us: + 1235 2355 98</a></p>
+                            <p><span>Phone:</span> <a href="tel://7404051633">Call us: + 740 405 1633</a></p>
                         </div>
                     </div>
                     <div class="col-md-4 text-center d-flex">
@@ -38,7 +38,7 @@
                             <div class="icon">
                                 <span class="icon-envelope-o"></span>
                             </div>
-                            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                            <p><span>Email:</span> <a href="mailto:info@suremarketingsolutions.com">info@suremarketingsolutions.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-10 mb-md-5">
-                <h2 class="text-center">If you got any questions <br>please do not hesitate to send us a message</h2>
+                <h2 class="text-center">If you have any questions <br>please do not hesitate to send us a message</h2>
                 <form action="#" class="border p-5 contact-form">
                     <div class="form-group">
                         <input name="name" id="name" [(ngModel)]="contactModel.name" type="text" class="form-control"
@@ -76,10 +76,21 @@
 </section>
 
 <section class="ftco-section ftco-no-pb ftco-no-pt">
+    <div class="row">
+        <div class="container">
+            <h2 class="text-center">Our Neighborhood</h2>
+            <h5 class="text-center">We are not currently taking walk-ins. However, we have plans to open a central office to better serve our clients.</h5>
+        </div>
+    </div>
     <div class="container-fluid px-0">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div id="map" class="bg-white"></div>
+                <google-map id="map" width="100%" (mapClick)="mapClicked($event)" [center]="center" [mapTypeId]="'hybrid'" class="w-100">
+                    <map-info-window>{{ infoContent }}</map-info-window>
+                    <map-marker #markerElem *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+                        [title]="marker.title" [options]="marker.options" (mapClick)="openInfo(markerElem, '843 Fairbanks Avenue, Newark Ohio 43055')">
+                    </map-marker>
+                </google-map>
             </div>
         </div>
     </div>

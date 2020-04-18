@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ParallaxConfig } from 'ngx-parallax';
 import { DataService } from 'src/app/core/data.service';
+
 export interface Quote {
   first?: string;
   last?: string;
@@ -14,6 +16,10 @@ export interface Quote {
 })
 export class QuoteSectionComponent implements OnInit {
   @Input() text = `Ready to take the next step, or just need some direction? Fill out this form for a free consultation and quote.`
+  parallaxConfig: ParallaxConfig = {
+    initialValue: -500,
+    ratio: .7
+  }
 
   quoteModel: Quote = {
     first: '',

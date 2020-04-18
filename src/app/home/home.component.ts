@@ -7,7 +7,7 @@ import { ParallaxConfig } from 'ngx-parallax';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  config: ParallaxConfig = { initialValue: -210, ratio: .3 };
+  config: ParallaxConfig = { initialValue: -50, ratio: .05 };
   testimonials: Testimonial[] = TESTIMONIALS;
   constructor() { }
 

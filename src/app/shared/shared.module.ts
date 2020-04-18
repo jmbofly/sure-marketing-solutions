@@ -8,16 +8,19 @@ import { LoaderComponent } from './loader/loader.component';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { CarouselModule as OwlModule } from 'ngx-owl-carousel-o';
 import { TestimonyComponent } from './testimony/testimony.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent],
   imports: [
     CommonModule,
     FormsModule,
+    GoogleMapsModule,
     OwlModule,
     ParallaxModule,
   ],
   exports: [CommonModule, FormsModule,
+    GoogleMapsModule,
     ParallaxModule,
     CarouselModule,
     PopoverModule,

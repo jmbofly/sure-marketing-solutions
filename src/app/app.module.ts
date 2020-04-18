@@ -11,10 +11,14 @@ import { HomeModule } from './home/home.module';
 import { TeamModule } from './team/team.module';
 import { ServicesModule } from './services/services.module';
 import { AppRoutingModule } from './app-routing.module';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [FooterComponent, NavbarComponent]
 })
 export class AppModule { }
