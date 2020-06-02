@@ -1,12 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataService } from '../core/data.service';
 import { MapMarker, MapInfoWindow, GoogleMap } from '@angular/google-maps';
-export interface Contact {
-  name: string,
-  email: string,
-  subject: string,
-  message: string
-}
+import { Contact, TOPICS } from '../shared/meta/contact';
+import { DataService } from '../core/data.service';
+
 
 @Component({
   selector: 'sms-contact',
@@ -17,21 +13,27 @@ export class ContactComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;
   infoContent = '';
-  mapOptions: google.maps.MapOptions = {}
+  canCall = true;
+  mapOptions: google.maps.MapOptions = {};
+  contactTopics = TOPICS;
   markers = [];
   center: google.maps.LatLngLiteral = {
     lat: 40.051550,
     lng: -82.433920
   };
   contactModel: Contact = {
-    name: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    canCall: true,
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    topic: 'website'
   }
   constructor(private dataService: DataService) { }
   ngOnInit(): void {
-    this.addMarker()
+    this.addMarker();
     // navigator.geolocation.getCurrentPosition(position => {
       //   this.center = {
         //     lat: position.coords.latitude,
@@ -61,8 +63,21 @@ export class ContactComponent implements OnInit {
     this.infoWindow.open(marker)
   }
 
+  toggleCanCall() {
+    this.canCall = !this.canCall;
+  }
+
   async addNewContact(data) {
-    await this.dataService.addToCollection('contacts', data).then(res => console.log('contact added', res))
+    await this.dataService.addToCollection('contacts', data).then(res => console.log('contact added', res)).finally(() => this.contactModel = {
+      firstName: '',
+      lastName: '',
+      phone: '',
+      canCall: true,
+      email: '',
+      subject: '',
+      message: '',
+      topic: 'website'
+    })
   }
 
   mapClicked(e: Event) {

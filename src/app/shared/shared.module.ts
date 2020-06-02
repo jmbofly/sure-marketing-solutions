@@ -9,9 +9,10 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { CarouselModule as OwlModule } from 'ngx-owl-carousel-o';
 import { TestimonyComponent } from './testimony/testimony.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
-  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent],
+  declarations: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent, SafeHtmlPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -41,7 +42,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     QuoteSectionComponent,
     LoaderComponent,
     BackToTopComponent,
-    TestimonyComponent,],
+    TestimonyComponent,
+    SafeHtmlPipe,],
   entryComponents: [QuoteSectionComponent, LoaderComponent, BackToTopComponent, TestimonyComponent]
 })
 export class SharedModule { }

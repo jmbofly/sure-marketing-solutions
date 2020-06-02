@@ -4,9 +4,8 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <h1 class="mb-2 bread">Contact</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
-                                class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
-                            class="ion-ios-arrow-forward"></i></span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a routerLink="home">Home <i
+                                class="ion-ios-arrow-forward"></i></a></span> <span class="text-primary text-bold">Contact </span></p>
             </div>
         </div>
     </div>
@@ -47,26 +46,58 @@
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-10 mb-md-5">
                 <h2 class="text-center">If you have any questions <br>please do not hesitate to send us a message</h2>
-                <form action="#" class="border p-5 contact-form">
+                <form #contactForm="ngForm" name="contactForm" class="border p-5 contact-form">
                     <div class="form-group">
-                        <input name="name" id="name" [(ngModel)]="contactModel.name" type="text" class="form-control"
-                            placeholder="Your Name">
+                        <input name="firstName" id="firstName" #firstName="ngModel" [(ngModel)]="contactModel.firstName" type="text" class="form-control"
+                            placeholder=" First Name" required>
+                            <p class="text-warning" *ngIf="firstName.errors">Please provide a valid first name</p>
                     </div>
                     <div class="form-group">
-                        <input name="email" id="email" [(ngModel)]="contactModel.email" type="email"
-                            class="form-control" placeholder="Your Email">
+                        <input name="lastName" id="lastName" #lastName="ngModel" [(ngModel)]="contactModel.lastName" type="text" class="form-control"
+                            placeholder=" Last Name" required>
+                            <p class="text-warning" *ngIf="lastName.errors">Please provide a valid last name</p>
                     </div>
                     <div class="form-group">
-                        <input name="subject" id="subject" [(ngModel)]="contactModel.subject" type="text"
-                            class="form-control" placeholder="Subject">
+                        <input name="phone" id="phone" #phone="ngModel" [(ngModel)]="contactModel.phone" type="phone" class="form-control"
+                            placeholder=" Phone Number" required>
+                            <p class="text-warning" *ngIf="phone.errors">Please provide a valid phone number</p>
+                            <!-- <button class="input-group-append btn" style="border-radius: 2px;" (click)="toggleCanCall()" [ngClass]="canCall ? 'btn-success':'btn-danger'"><i [ngClass]="canCall ? 'fa-check':'fa-hand-stop-o'" class="fa"></i>&nbsp; {{canCall ? 'Please ': 'Don\'t ' }}Call me </button> -->
+                    </div>
+                    <div class="form-group ml-5">
+                        <label class="form-check-label">
+                            <input class="form-check-input" [(ngModel)]="contactModel.canCall" type="checkbox" name="canCall" id="canCall" value="true">I give Sure Marketing Solutions permission to call me at the above phone number.
+                        </label>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" id="message" [(ngModel)]="contactModel.message" cols="30" rows="7"
-                            class="form-control" placeholder="Message"></textarea>
+                        <input name="email" id="email" #email="ngModel" [(ngModel)]="contactModel.email" type="email"
+                            class="form-control" placeholder=" Email" required>
+                            <p class="text-warning" *ngIf="email.errors">Please provide a valid email</p>
                     </div>
                     <div class="form-group">
-                        <input type="button" (click)="addNewContact(contactModel)" value="Send Message"
-                            class="btn btn-primary py-3 px-5">
+                        <div class="form-field">
+                            <div class="select-wrap">
+                                <!-- <div class="icon"><span class="fa fa-chevron-down"></span></div> -->
+                                <select [(ngModel)]="contactModel.topic" name="consultation" id="consultation" class="form-control" required>
+                                    <option class="">Select Topic</option>
+                                    <option *ngFor="let topic of contactTopics" class="" [value]="topic">{{topic}}</option>
+                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input name="subject" id="subject" #subject="ngModel" [(ngModel)]="contactModel.subject" type="text"
+                            class="form-control" placeholder="Subject" required>
+                            <p class="text-warning" *ngIf="subject.errors">Please provide a subject</p>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" #message="ngModel" [(ngModel)]="contactModel.message" cols="30" rows="7"
+                            class="form-control" placeholder="Message" required></textarea>
+                            <p class="text-warning" *ngIf="message.errors">Please provide a message</p>
+                    </div>
+                    <div class="form-group">
+                        <button (click)="addNewContact(contactModel)"
+                            class="btn btn-primary py-3 px-5" [disabled]="contactForm.errors || contactForm.invalid"><i class="fa fa-paper-plane"></i> Send</button>
                     </div>
                 </form>
 
@@ -75,7 +106,7 @@
     </div>
 </section>
 
-<section class="ftco-section ftco-no-pb ftco-no-pt">
+<section class="overflow-hidden ftco-no-pb ftco-no-pt">
     <div class="row">
         <div class="container">
             <h2 class="text-center">Our Neighborhood</h2>

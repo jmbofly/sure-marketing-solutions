@@ -1,21 +1,21 @@
-<section class="home-slider">
+<section class="home-slider" #wrapper>
     <carousel #carousel [showIndicators]="false">
         <slide>
-            <div class="slider-item" [style.background-attachment]="'fixed'" style="background-image:url(assets/images/bg_1.jpg); background-size: 110%;" parallax [axis]="'X'" [config]="config">
+            <div class="slider-item" style="background-image:url(assets/images/bg_1.jpg);" parallax [axis]="'X'" [config]="config">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start">
                         <div class="col-md-7  mb-md-5" data-aos="fade-up">
                             <span class="subheading">Sure Marketing Solutions</span>
                             <h1 class="mb-4">Digital Marketing & Business Solutions</h1>
-                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
+                            <p><a routerLink="services" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </slide>
         <slide>
-            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg); background-size: 110%;" [style.background-attachment]="'fixed'" parallax [config]="config">
+            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg);" parallax [config]="config">
                 <div class="overlay"></div>
                 <div class="container">
                     <div class="row no-gutters slider-text align-items-center justify-content-start"
@@ -23,45 +23,13 @@
                         <div class="col-md-7  mb-md-5">
                             <span class="subheading">Sure Marketing Solutions</span>
                             <h1 class="mb-4">We Help to Grow Your Business</h1>
-                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
+                            <p><a routerLink="services" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </slide>
     </carousel>
-    <!-- <owl-carousel-o>
-        <ng-template carouselSlide>
-            <div class="slider-item" style="background-image:url(assets/images/bg_1.jpg);">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row no-gutters slider-text align-items-center justify-content-start">
-                        <div class="col-md-7  mb-md-5" data-aos="fade-up">
-                            <span class="subheading">Sure Marketing Solutions</span>
-                            <h1 class="mb-4">Digital Marketing & Business Solutions</h1>
-                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template carouselSlide>
-            <div class="slider-item" style="background-image:url(assets/images/bg_2.jpg);">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row no-gutters slider-text align-items-center justify-content-start"
-                        data-scrollax-parent="true">
-                        <div class="col-md-7  mb-md-5">
-                            <span class="subheading">Sure Marketing Solutions</span>
-                            <h1 class="mb-4">We Help to Grow Your Business</h1>
-                            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Our Services</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-
-    </owl-carousel-o> -->
 </section>
 
 <section class="sms-section sms-no-pt sms-no-pb sms-consult">
@@ -70,37 +38,60 @@
             <div class="col-md-5 wrap-about align-items-stretch d-flex" data-aos="fade-up" data-aos-delay="150">
                 <div class="bg-secondary align-self-stretch px-4 py-5 w-100">
                     <h2 class="heading-white mb-4">Free Consultation</h2>
-                    <form class="appointment-form">
+                    <form #contactForm="ngForm" class="appointment-form" name="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input name="firstName" id="firstName" #firstName="ngModel" [(ngModel)]="contact.firstName" type="text"
+                                class="form-control" placeholder=" First Name" required>
+                            <p class="text-warning" *ngIf="firstName.errors">Please provide a valid first name</p>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input name="lastName" id="lastName" #lastName="ngModel" [(ngModel)]="contact.lastName" type="text"
+                                class="form-control" placeholder=" Last Name" required>
+                            <p class="text-warning" *ngIf="lastName.errors">Please provide a valid last name</p>
+                        </div>
+                        <div class="form-group">
+                            <input name="phone" id="phone" #phone="ngModel" [(ngModel)]="contact.phone" type="phone" class="form-control"
+                                placeholder=" Phone Number" required>
+                            <p class="text-warning" *ngIf="phone.errors">Please provide a valid phone number</p>
+                            <!-- <button class="input-group-append btn" style="border-radius: 2px;" (click)="toggleCanCall()" [ngClass]="canCall ? 'btn-success':'btn-danger'"><i [ngClass]="canCall ? 'fa-check':'fa-hand-stop-o'" class="fa"></i>&nbsp; {{canCall ? 'Please ': 'Don\'t ' }}Call me </button> -->
+                        </div>
+                        <div class="form-group ml-5">
+                            <label class="form-check-label">
+                                <input class="form-check-input" [(ngModel)]="contact.canCall" type="checkbox" name="canCall" id="canCall"
+                                    value="true">I give Sure Marketing Solutions permission to call me at the above phone number.
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input name="email" id="email" #email="ngModel" [(ngModel)]="contact.email" type="email" class="form-control"
+                                placeholder=" Email" required>
+                            <p class="text-warning" *ngIf="email.errors">Please provide a valid email</p>
                         </div>
                         <div class="form-group">
                             <div class="form-field">
                                 <div class="select-wrap">
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="consultation" id="consultation" class="form-control">
-                                        <option class="" value="">Select Topic</option>
-                                        <option class="" value="">Website</option>
-                                        <option class="" value="">Branding</option>
-                                        <option class="" value="">Email Campaigns</option>
-                                        <option class="" value="">SEO</option>
-                                        <option class="" value="">Other Services</option>
+                                    <!-- <div class="icon"><span class="fa fa-chevron-down"></span></div> -->
+                                    <select [(ngModel)]="contact.topic" name="consultation" id="consultation" class="form-control"
+                                        required>
+                                        <option class="">Select Topic</option>
+                                        <option *ngFor="let topic of contactTopics" class="" [value]="topic">{{topic}}</option>
+                        
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone">
+                            <input name="subject" id="subject" #subject="ngModel" [(ngModel)]="contact.subject" type="text"
+                                class="form-control" placeholder="Subject" required>
+                            <p class="text-warning" *ngIf="subject.errors">Please provide a subject</p>
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="2" class="form-control"
-                                placeholder="Message"></textarea>
+                            <textarea name="message" id="message" #message="ngModel" [(ngModel)]="contact.message" cols="30" rows="7"
+                                class="form-control" placeholder="Message" required></textarea>
+                            <p class="text-warning" *ngIf="message.errors">Please provide a message</p>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Request A Quote" class="btn btn-primary py-3 px-4">
+                            <button (click)="addContact(contact)" class="btn btn-primary py-3 px-5"
+                                [disabled]="contactForm.errors || contactForm.invalid"><i class="fa fa-paper-plane"></i> Send</button>
                         </div>
                     </form>
                 </div>
@@ -176,44 +167,21 @@
             <div class="col-md-6 wrap-about  py-md-5 pl-md-5">
                 <div class="heading-section mb-4">
                     <span class="subheading">Welcome to Sure Marketing Solutions</span>
-                    <h2>The Sartest Thing To Do With Your Business</h2>
+                    <h2>The Smartest Thing To Do With Your Business</h2>
                 </div>
                 <p>Every service we provide is dedicated to one cause: bringing you more business.</p>
-                <div class="tabulation-2 mt-4">
-                    <ul class="nav nav-pills nav-fill d-md-flex d-block">
-                        <li class="nav-item">
-                            <a class="nav-link active py-2" data-toggle="tab" href="#home1"><span
-                                    class="fa fa-home mr-2"></span>
-                                Our Mission</a>
-                        </li>
-                        <li class="nav-item px-lg-2">
-                            <a class="nav-link py-2" data-toggle="tab" href="#home2"><span
-                                    class="fa fa-user mr-2"></span> Our
-                                Vision</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link py-2" data-toggle="tab" href="#home3"><span
-                                    class="fa fa-envelope mr-2"></span> Our
-                                Value</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content bg-light rounded mt-2">
-                        <div class="tab-pane container p-0 active" id="home1">
-                            <p>Our mission is to provide solutions for engaging new leads, and generating higher user
-                                retention rates for our clients. By utiizing our experience and providing the necessary
-                                tools, we help businesses surpass all their customers expectations.</p>
-                        </div>
-                        <div class="tab-pane container p-0 fade" id="home2">
-                            <p>Our vision has taken this.</p>
-                        </div>
-                        <div class="tab-pane container p-0 fade" id="home3">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the
-                                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                                a large language
-                                ocean.</p>
-                        </div>
-                    </div>
+                <div class="tabulation-2 mt-2">
+                    <tabset type="pills" [justified]="true" [vertical]="wrapper.clientWidth < 760">
+                        <tab *ngFor="let tab of tabs">
+                            <ng-template tabHeading class="py-2 text-dark">
+                                <span class="mr-2 py-2 fa" [ngClass]="tab.icon"></span> {{tab.title}}
+                            </ng-template>
+                            <div class="tab-content bg-light rounded mt-2">
+                                <div [innerHTML]="tab.content | safeHtml"></div>
+                            </div>
+                        </tab>
+                    </tabset>
+
                 </div>
                 <div class="row mt-5">
                     <div class="col-md d-flex justify-content-center counter-wrap ">
@@ -264,7 +232,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-1.jpg);"></div>
+                    <div class="img rounded mb-4" style="background-image: url(assets/images/case-study-1.png);"></div>
                     <div class="text w-100 text-center">
                         <span class="cat">Consulting</span>
                         <h3><a href="#">Consultacy Solutions</a></h3>
@@ -276,7 +244,7 @@
             </div>
             <div class="col-md-4">
                 <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-2.jpg);"></div>
+                    <div class="img rounded mb-4" style="background-image: url(assets/images/case-study-2.png);"></div>
                     <div class="text w-100 text-center">
                         <span class="cat">Marketing</span>
                         <h3><a href="#">Consultacy Solutions</a></h3>
@@ -288,45 +256,9 @@
             </div>
             <div class="col-md-4">
                 <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-3.jpg);"></div>
+                    <div class="img rounded mb-4" style="background-image: url(assets/images/case-study-3.png);"></div>
                     <div class="text w-100 text-center">
                         <span class="cat">Financing</span>
-                        <h3><a href="#">Consultacy Solutions</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a
-                            paradisematic country</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-4.jpg);"></div>
-                    <div class="text w-100 text-center">
-                        <span class="cat">Audit &amp; Taxes</span>
-                        <h3><a href="#">Consultacy Solutions</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a
-                            paradisematic country</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-5.jpg);"></div>
-                    <div class="text w-100 text-center">
-                        <span class="cat">Financing</span>
-                        <h3><a href="#">Consultacy Solutions</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                            It is a
-                            paradisematic country</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <div class="img rounded mb-4" style="background-image: url(assets/images/project-6.jpg);"></div>
-                    <div class="text w-100 text-center">
-                        <span class="cat">Real Estate</span>
                         <h3><a href="#">Consultacy Solutions</a></h3>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
                             It is a

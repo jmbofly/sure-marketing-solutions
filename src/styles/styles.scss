@@ -510,6 +510,14 @@ h5,
         content: '';
         opacity: .3;
         background: $black;
+
+        video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
     }
 
     &.hero-wrap-2 {
@@ -635,7 +643,8 @@ h5,
     }
 
     .slider-item {
-        background-size: cover;
+        background-size: 110% !important;
+        background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: center;
         height: 620px !important;
@@ -645,6 +654,7 @@ h5,
 
         @include media-breakpoint-down(lg) {
             background-position: center center !important;
+            background-size: 300% !important;
         }
 
 
@@ -840,7 +850,7 @@ h5,
     background: $fifth;
 }
 
-.ftc-no-pb {
+.ftco-no-pb {
     padding-bottom: 0 !important;
 }
 
@@ -1113,6 +1123,18 @@ h5,
 .tabulation-2 {
     .nav-pills {
         .nav-item {
+            margin-right: .75rem !important;
+
+            .active {
+                color: $white;
+                background: $primary;
+                border: 1px solid $primary;
+
+                span {
+                    color: $white;
+                }
+            }
+
             .nav-link {
                 background: $white;
                 border-radius: 4px;
@@ -1542,6 +1564,7 @@ textarea.form-control {
 
     background-attachment: fixed;
     background-size: 110%;
+
     @include media-breakpoint-down(sm) {
         background-size: cover;
     }
@@ -2227,12 +2250,21 @@ textarea.form-control {
             }
         }
 
+        input:focus {
+            background-color: transparent !important;
+        }
+
         .select-wrap,
         .input-wrap {
             position: relative;
 
             select {
                 appearance: none;
+
+                option:not(:first-child) {
+                    background-color: lighten($color: $secondary, $amount: 20) !important;
+                    padding-left: 1rem !important;
+                }
             }
         }
 
