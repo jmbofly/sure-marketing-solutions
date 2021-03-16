@@ -15,7 +15,7 @@ export class LoaderComponent implements OnInit {
   }
 
   navigateTo(url: string) {
-    return this.router.navigateByUrl(url, { relativeTo: this.route })
+    return this.router.navigateByUrl(url, /* Removed unsupported properties by Angular migration: relativeTo. */ {})
   }
 
   load(url = null) {
