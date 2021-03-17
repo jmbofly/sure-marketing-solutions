@@ -56,7 +56,8 @@ export class HomeComponent implements OnInit {
   }
 
   async addContact(data: Contact) {
-    this.dataService.addToCollection('contacts', data).finally(() => this.contact = {
+    await this.dataService.addToCollection('contacts', data);
+    this.contact = {
       firstName: '',
       lastName: '',
       phone: '',
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit {
       subject: '',
       message: '',
       topic: 'other'
-    });
+    };
   }
 
 }

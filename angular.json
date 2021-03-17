@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "ngx-parallax",
+              "firebase",
+              "jquery"
+            ],
             "outputPath": "dist/sure-marketing-solutions",
             "index": "src/index.html",
             "main": "src/main.ts",

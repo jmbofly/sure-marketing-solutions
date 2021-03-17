@@ -68,7 +68,8 @@ export class ContactComponent implements OnInit {
   }
 
   async addNewContact(data) {
-    await this.dataService.addToCollection('contacts', data).then(res => console.log('contact added', res)).finally(() => this.contactModel = {
+    await this.dataService.addToCollection('contacts', data)
+    this.contactModel = {
       firstName: '',
       lastName: '',
       phone: '',
@@ -77,7 +78,7 @@ export class ContactComponent implements OnInit {
       subject: '',
       message: '',
       topic: 'website'
-    })
+    };
   }
 
   mapClicked(e: Event) {
